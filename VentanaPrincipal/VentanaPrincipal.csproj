@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3AE14E8A-A771-4B1B-872B-0054AA72855C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>VentanaPrincipal</RootNamespace>
+    <AssemblyName>VentanaPrincipal</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HistorialBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistorialBalance.Designer.cs">
+      <DependentUpon>HistorialBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialEgresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistorialEgresos.Designer.cs">
+      <DependentUpon>HistorialEgresos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialIngresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistorialIngresos.Designer.cs">
+      <DependentUpon>HistorialIngresos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistorialServicios.Designer.cs">
+      <DependentUpon>HistorialServicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LimpiarCampos.cs" />
+    <Compile Include="VentanaBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaBalance.Designer.cs">
+      <DependentUpon>VentanaBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaEgresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaEgresos.Designer.cs">
+      <DependentUpon>VentanaEgresos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaIngresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaIngresos.Designer.cs">
+      <DependentUpon>VentanaIngresos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaLogin.Designer.cs">
+      <DependentUpon>VentanaLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VentanaMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaMenu.Designer.cs">
+      <DependentUpon>VentanaMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaServicios.Designer.cs">
+      <DependentUpon>VentanaServicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerificarCampos.cs" />
+    <EmbeddedResource Include="HistorialBalance.resx">
+      <DependentUpon>HistorialBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistorialEgresos.resx">
+      <DependentUpon>HistorialEgresos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistorialIngresos.resx">
+      <DependentUpon>HistorialIngresos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistorialServicios.resx">
+      <DependentUpon>HistorialServicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaBalance.resx">
+      <DependentUpon>VentanaBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaEgresos.resx">
+      <DependentUpon>VentanaEgresos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaIngresos.resx">
+      <DependentUpon>VentanaIngresos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaLogin.resx">
+      <DependentUpon>VentanaLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="VentanaMenu.resx">
+      <DependentUpon>VentanaMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaServicios.resx">
+      <DependentUpon>VentanaServicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TransicionDatos\TransicionDatos.csproj">
+      <Project>{7e0f112f-4654-4c50-9c56-c04a9f0c660c}</Project>
+      <Name>TransicionDatos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

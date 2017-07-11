@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VentanaPrincipal", "VentanaPrincipal\VentanaPrincipal.csproj", "{3AE14E8A-A771-4B1B-872B-0054AA72855C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConexionesBD", "ConexionesBD\ConexionesBD.csproj", "{FAC97246-4B2C-4A04-A971-9E0755FCF4D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransicionDatos", "TransicionDatos\TransicionDatos.csproj", "{7E0F112F-4654-4C50-9C56-C04A9F0C660C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AE14E8A-A771-4B1B-872B-0054AA72855C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AE14E8A-A771-4B1B-872B-0054AA72855C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AE14E8A-A771-4B1B-872B-0054AA72855C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AE14E8A-A771-4B1B-872B-0054AA72855C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAC97246-4B2C-4A04-A971-9E0755FCF4D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAC97246-4B2C-4A04-A971-9E0755FCF4D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAC97246-4B2C-4A04-A971-9E0755FCF4D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAC97246-4B2C-4A04-A971-9E0755FCF4D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E0F112F-4654-4C50-9C56-C04A9F0C660C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E0F112F-4654-4C50-9C56-C04A9F0C660C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E0F112F-4654-4C50-9C56-C04A9F0C660C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E0F112F-4654-4C50-9C56-C04A9F0C660C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
