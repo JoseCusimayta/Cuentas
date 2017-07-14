@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaIngresos));
             this.panel3 = new System.Windows.Forms.Panel();
             this.b_imprimir = new System.Windows.Forms.Button();
             this.b_salir = new System.Windows.Forms.Button();
@@ -44,10 +45,10 @@
             this.b_guardar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tb_fecha = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cb_colegio = new System.Windows.Forms.ComboBox();
             this.Fecha = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tb_orden = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -58,6 +59,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.tb_talon = new System.Windows.Forms.TextBox();
             this.tb_monto = new System.Windows.Forms.TextBox();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.b_f5 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -88,9 +92,11 @@
             this.b_imprimir.TabStop = false;
             this.b_imprimir.Text = "Vista Previa";
             this.b_imprimir.UseVisualStyleBackColor = true;
+            this.b_imprimir.Click += new System.EventHandler(this.b_imprimir_Click);
             // 
             // b_salir
             // 
+            this.b_salir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.b_salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b_salir.Location = new System.Drawing.Point(585, 3);
             this.b_salir.Name = "b_salir";
@@ -99,6 +105,7 @@
             this.b_salir.TabStop = false;
             this.b_salir.Text = "Salir";
             this.b_salir.UseVisualStyleBackColor = true;
+            this.b_salir.Click += new System.EventHandler(this.b_salir_Click);
             // 
             // b_final
             // 
@@ -110,6 +117,7 @@
             this.b_final.TabStop = false;
             this.b_final.Text = ">>";
             this.b_final.UseVisualStyleBackColor = true;
+            this.b_final.Click += new System.EventHandler(this.b_final_Click);
             // 
             // b_siguiente
             // 
@@ -121,6 +129,7 @@
             this.b_siguiente.TabStop = false;
             this.b_siguiente.Text = ">";
             this.b_siguiente.UseVisualStyleBackColor = true;
+            this.b_siguiente.Click += new System.EventHandler(this.b_siguiente_Click);
             // 
             // b_anterior
             // 
@@ -132,6 +141,7 @@
             this.b_anterior.TabStop = false;
             this.b_anterior.Text = "<";
             this.b_anterior.UseVisualStyleBackColor = true;
+            this.b_anterior.Click += new System.EventHandler(this.b_anterior_Click);
             // 
             // b_inicio
             // 
@@ -143,10 +153,12 @@
             this.b_inicio.TabStop = false;
             this.b_inicio.Text = "<<";
             this.b_inicio.UseVisualStyleBackColor = true;
+            this.b_inicio.Click += new System.EventHandler(this.b_inicio_Click);
             // 
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel2.Controls.Add(this.b_f5);
             this.panel2.Controls.Add(this.b_nuevo);
             this.panel2.Controls.Add(this.b_modificar);
             this.panel2.Controls.Add(this.b_historial);
@@ -162,7 +174,7 @@
             // 
             this.b_nuevo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.b_nuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_nuevo.Location = new System.Drawing.Point(81, 5);
+            this.b_nuevo.Location = new System.Drawing.Point(20, 5);
             this.b_nuevo.Name = "b_nuevo";
             this.b_nuevo.Size = new System.Drawing.Size(120, 25);
             this.b_nuevo.TabIndex = 19;
@@ -175,64 +187,69 @@
             // 
             this.b_modificar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.b_modificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_modificar.Location = new System.Drawing.Point(207, 5);
+            this.b_modificar.Location = new System.Drawing.Point(146, 5);
             this.b_modificar.Name = "b_modificar";
             this.b_modificar.Size = new System.Drawing.Size(120, 25);
             this.b_modificar.TabIndex = 16;
             this.b_modificar.TabStop = false;
             this.b_modificar.Text = "Modificar";
             this.b_modificar.UseVisualStyleBackColor = true;
+            this.b_modificar.Click += new System.EventHandler(this.b_modificar_Click);
             // 
             // b_historial
             // 
             this.b_historial.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.b_historial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_historial.Location = new System.Drawing.Point(711, 5);
+            this.b_historial.Location = new System.Drawing.Point(650, 5);
             this.b_historial.Name = "b_historial";
             this.b_historial.Size = new System.Drawing.Size(120, 25);
             this.b_historial.TabIndex = 21;
             this.b_historial.TabStop = false;
             this.b_historial.Text = "Historial";
             this.b_historial.UseVisualStyleBackColor = true;
+            this.b_historial.Click += new System.EventHandler(this.b_historial_Click);
             // 
             // b_eliminar
             // 
             this.b_eliminar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.b_eliminar.Enabled = false;
             this.b_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_eliminar.Location = new System.Drawing.Point(333, 5);
+            this.b_eliminar.Location = new System.Drawing.Point(272, 5);
             this.b_eliminar.Name = "b_eliminar";
             this.b_eliminar.Size = new System.Drawing.Size(120, 25);
             this.b_eliminar.TabIndex = 17;
             this.b_eliminar.TabStop = false;
             this.b_eliminar.Text = "Eliminar";
             this.b_eliminar.UseVisualStyleBackColor = true;
+            this.b_eliminar.Click += new System.EventHandler(this.b_eliminar_Click);
             // 
             // b_cancelar
             // 
             this.b_cancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.b_cancelar.Enabled = false;
             this.b_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_cancelar.Location = new System.Drawing.Point(585, 5);
+            this.b_cancelar.Location = new System.Drawing.Point(524, 5);
             this.b_cancelar.Name = "b_cancelar";
             this.b_cancelar.Size = new System.Drawing.Size(120, 25);
             this.b_cancelar.TabIndex = 20;
             this.b_cancelar.TabStop = false;
             this.b_cancelar.Text = "Cancelar";
             this.b_cancelar.UseVisualStyleBackColor = true;
+            this.b_cancelar.Click += new System.EventHandler(this.b_cancelar_Click);
             // 
             // b_guardar
             // 
             this.b_guardar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.b_guardar.Enabled = false;
             this.b_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_guardar.Location = new System.Drawing.Point(459, 5);
+            this.b_guardar.Location = new System.Drawing.Point(398, 5);
             this.b_guardar.Name = "b_guardar";
             this.b_guardar.Size = new System.Drawing.Size(120, 25);
             this.b_guardar.TabIndex = 18;
             this.b_guardar.TabStop = false;
             this.b_guardar.Text = "Guardar";
             this.b_guardar.UseVisualStyleBackColor = true;
+            this.b_guardar.Click += new System.EventHandler(this.b_guardar_Click);
             // 
             // dataGridView1
             // 
@@ -247,20 +264,22 @@
             this.dataGridView1.Location = new System.Drawing.Point(15, 230);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(950, 283);
             this.dataGridView1.TabIndex = 66;
             this.dataGridView1.TabStop = false;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.panel1.Controls.Add(this.tb_fecha);
+            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.cb_colegio);
             this.panel1.Controls.Add(this.Fecha);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.tb_orden);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label3);
@@ -273,23 +292,34 @@
             this.panel1.Controls.Add(this.tb_monto);
             this.panel1.Location = new System.Drawing.Point(30, 10);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(910, 173);
+            this.panel1.Size = new System.Drawing.Size(910, 175);
             this.panel1.TabIndex = 67;
             // 
-            // tb_fecha
+            // dateTimePicker1
             // 
-            this.tb_fecha.Enabled = false;
-            this.tb_fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_fecha.Location = new System.Drawing.Point(750, 20);
-            this.tb_fecha.Name = "tb_fecha";
-            this.tb_fecha.Size = new System.Drawing.Size(120, 23);
-            this.tb_fecha.TabIndex = 3;
+            this.dateTimePicker1.Location = new System.Drawing.Point(693, 20);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 18;
+            // 
+            // cb_colegio
+            // 
+            this.cb_colegio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_colegio.FormattingEnabled = true;
+            this.cb_colegio.Items.AddRange(new object[] {
+            "France la sorbona",
+            "Michel Duclercq"});
+            this.cb_colegio.Location = new System.Drawing.Point(182, 20);
+            this.cb_colegio.Name = "cb_colegio";
+            this.cb_colegio.Size = new System.Drawing.Size(121, 21);
+            this.cb_colegio.TabIndex = 17;
+            this.cb_colegio.SelectedIndexChanged += new System.EventHandler(this.cb_colegio_SelectedIndexChanged);
             // 
             // Fecha
             // 
             this.Fecha.AutoSize = true;
             this.Fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Fecha.Location = new System.Drawing.Point(650, 20);
+            this.Fecha.Location = new System.Drawing.Point(632, 20);
             this.Fecha.Name = "Fecha";
             this.Fecha.Size = new System.Drawing.Size(47, 17);
             this.Fecha.TabIndex = 16;
@@ -299,26 +329,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(350, 20);
+            this.label1.Location = new System.Drawing.Point(332, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo";
             // 
-            // tb_orden
-            // 
-            this.tb_orden.Enabled = false;
-            this.tb_orden.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_orden.Location = new System.Drawing.Point(200, 20);
-            this.tb_orden.Name = "tb_orden";
-            this.tb_orden.Size = new System.Drawing.Size(120, 23);
-            this.tb_orden.TabIndex = 1;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(150, 120);
+            this.label2.Location = new System.Drawing.Point(132, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 17);
             this.label2.TabIndex = 1;
@@ -328,17 +349,17 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(50, 20);
+            this.label8.Location = new System.Drawing.Point(32, 20);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 17);
+            this.label8.Size = new System.Drawing.Size(55, 17);
             this.label8.TabIndex = 14;
-            this.label8.Text = "Orden";
+            this.label8.Text = "Colegio";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(50, 70);
+            this.label3.Location = new System.Drawing.Point(32, 70);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 17);
             this.label3.TabIndex = 2;
@@ -348,19 +369,19 @@
             // 
             this.tb_boleta.Enabled = false;
             this.tb_boleta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_boleta.Location = new System.Drawing.Point(500, 70);
+            this.tb_boleta.Location = new System.Drawing.Point(482, 70);
             this.tb_boleta.MaxLength = 8;
             this.tb_boleta.Name = "tb_boleta";
             this.tb_boleta.Size = new System.Drawing.Size(120, 23);
             this.tb_boleta.TabIndex = 5;
-            this.tb_boleta.Tag = "Precio al por menor";
+            this.tb_boleta.Tag = "Número de Boleta";
             this.tb_boleta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_boleta_KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(650, 70);
+            this.label4.Location = new System.Drawing.Point(632, 70);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 17);
             this.label4.TabIndex = 3;
@@ -370,7 +391,7 @@
             // 
             this.tb_codigo.Enabled = false;
             this.tb_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_codigo.Location = new System.Drawing.Point(500, 20);
+            this.tb_codigo.Location = new System.Drawing.Point(482, 20);
             this.tb_codigo.MaxLength = 6;
             this.tb_codigo.Name = "tb_codigo";
             this.tb_codigo.Size = new System.Drawing.Size(120, 23);
@@ -381,18 +402,18 @@
             // 
             this.tb_descipcion.Enabled = false;
             this.tb_descipcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_descipcion.Location = new System.Drawing.Point(250, 120);
+            this.tb_descipcion.Location = new System.Drawing.Point(232, 120);
             this.tb_descipcion.MaxLength = 50;
             this.tb_descipcion.Name = "tb_descipcion";
             this.tb_descipcion.Size = new System.Drawing.Size(500, 23);
             this.tb_descipcion.TabIndex = 7;
-            this.tb_descipcion.Tag = "Nombre de Prenda";
+            this.tb_descipcion.Tag = "Descripción";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(350, 70);
+            this.label7.Location = new System.Drawing.Point(332, 70);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(122, 17);
             this.label7.TabIndex = 10;
@@ -402,29 +423,57 @@
             // 
             this.tb_talon.Enabled = false;
             this.tb_talon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_talon.Location = new System.Drawing.Point(200, 70);
+            this.tb_talon.Location = new System.Drawing.Point(182, 70);
             this.tb_talon.MaxLength = 20;
             this.tb_talon.Name = "tb_talon";
             this.tb_talon.Size = new System.Drawing.Size(120, 23);
             this.tb_talon.TabIndex = 4;
-            this.tb_talon.Tag = "Color";
+            this.tb_talon.Tag = "Número de Talón";
             this.tb_talon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_talon_KeyPress);
             // 
             // tb_monto
             // 
             this.tb_monto.Enabled = false;
             this.tb_monto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_monto.Location = new System.Drawing.Point(750, 70);
+            this.tb_monto.Location = new System.Drawing.Point(732, 70);
             this.tb_monto.MaxLength = 10;
             this.tb_monto.Name = "tb_monto";
-            this.tb_monto.Size = new System.Drawing.Size(100, 23);
+            this.tb_monto.Size = new System.Drawing.Size(120, 23);
             this.tb_monto.TabIndex = 6;
-            this.tb_monto.Tag = "Precio al por mayor";
+            this.tb_monto.Tag = "Monto";
+            this.tb_monto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_monto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_monto_KeyPress);
-            this.tb_monto.Leave += new System.EventHandler(this.tb_monto_Leave);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // b_f5
+            // 
+            this.b_f5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.b_f5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_f5.Location = new System.Drawing.Point(776, 5);
+            this.b_f5.Name = "b_f5";
+            this.b_f5.Size = new System.Drawing.Size(120, 25);
+            this.b_f5.TabIndex = 22;
+            this.b_f5.TabStop = false;
+            this.b_f5.Text = "Actualizar";
+            this.b_f5.UseVisualStyleBackColor = true;
+            this.b_f5.Click += new System.EventHandler(this.b_f5_Click);
             // 
             // VentanaIngresos
             // 
+            this.AcceptButton = this.b_nuevo;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
@@ -462,10 +511,8 @@
         private System.Windows.Forms.Button b_guardar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox tb_fecha;
         private System.Windows.Forms.Label Fecha;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tb_orden;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label3;
@@ -476,5 +523,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tb_talon;
         private System.Windows.Forms.TextBox tb_monto;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.ComboBox cb_colegio;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button b_f5;
     }
 }
