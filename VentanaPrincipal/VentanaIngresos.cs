@@ -20,7 +20,7 @@ namespace VentanaPrincipal
         LimpiarCampos limpiarCampos = new LimpiarCampos();
         DataTable datatable;
         String modo = "Original";
-        String Titulo = "Registro de los Ingresos";
+        String Colegio = "Registro de los Ingresos";
         public VentanaIngresos()
         {
             InitializeComponent();
@@ -40,6 +40,7 @@ namespace VentanaPrincipal
             else
             {
                 dataGridView1.DataSource = datatable;
+                sumar();
             }
         }
         public void DiseñoTablas()
@@ -48,7 +49,7 @@ namespace VentanaPrincipal
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan;
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             
-            dataGridView1.Columns[4].DefaultCellStyle.Format = "C2";
+            dataGridView1.Columns[6].DefaultCellStyle.Format = "C2";
             dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -69,16 +70,29 @@ namespace VentanaPrincipal
                     DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                     tb_codigo.Text = row.Cells[0].Value.ToString();
                     cb_colegio.Text = row.Cells[1].Value.ToString();
-                    tb_talon.Text = row.Cells[2].Value.ToString();
-                    tb_boleta.Text = row.Cells[3].Value.ToString();
-                    tb_monto.Text = row.Cells[4].Value.ToString();
+                    dateTimePicker1.Text = row.Cells[2].Value.ToString();
+                    tb_talon.Text = row.Cells[3].Value.ToString();
+                    tb_boleta.Text = row.Cells[4].Value.ToString();
                     tb_descipcion.Text = row.Cells[5].Value.ToString();
-                    dateTimePicker1.Text = row.Cells[6].Value.ToString();
+                    tb_monto.Text = row.Cells[6].Value.ToString();
                 }
                 modo = "Original";
             }
         }
 
+        void sumar()
+        {
+            double suma = 0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                suma += Convert.ToDouble(row.Cells["Monto"].Value);
+            }
+            DataTable dt = (DataTable)dataGridView1.DataSource;
+            DataRow row2 = dt.NewRow();
+            row2["Descripción"] = "Suma Total";
+            row2["Monto"] = Convert.ToDecimal(suma);
+            dt.Rows.Add(row2);
+        }
         #endregion
 
         #region Ventana General
@@ -111,7 +125,7 @@ namespace VentanaPrincipal
         {
             if (modo != "Celda" && !string.IsNullOrWhiteSpace(cb_colegio.Text))
             {
-                Titulo = "Colegio " + cb_colegio.Text;
+                Colegio = "Colegio " + cb_colegio.Text;
                 TablaIngresos("and colegio= '" + cb_colegio.Text + "'");
             }
         }
@@ -130,7 +144,7 @@ namespace VentanaPrincipal
             verificarCampos.ActivarCancelar(panel1, panel2);
             limpiarCampos.BorrarCampos(panel1);
             TablaIngresos(null);
-            Titulo = "Registro de los ingresos";
+            Colegio = "Registro de los ingresos";
         }
         private void b_modificar_Click(object sender, EventArgs e)
         {
@@ -154,7 +168,7 @@ namespace VentanaPrincipal
             limpiarCampos.BorrarCampos(panel1);
             cb_colegio.Text = "";
             TablaIngresos(null);
-            Titulo = "Registro de los ingresos";
+            Colegio = "Registro de los ingresos";
         }
         #endregion
 
@@ -175,6 +189,7 @@ namespace VentanaPrincipal
         private void b_eliminar_Click(object sender, EventArgs e)
         {
             MessageBox.Show(ingresos.EliminarIngresos(tb_codigo.Text, dateTimePicker1.Text, tb_talon.Text, tb_boleta.Text, tb_monto.Text, tb_descipcion.Text, cb_colegio.Text));
+            TablaIngresos(null);
         }
         #endregion
 
@@ -240,7 +255,7 @@ namespace VentanaPrincipal
         }
         private void b_imprimir_Click(object sender, EventArgs e)
         {
-            if (imp.SetupThePrinting(printDocument1, dataGridView1, "Ingresos", "Documento"))
+            if (imp.SetupThePrinting(printDocument1, dataGridView1, "", "Documento"))
             {
                 PrintPreviewDialog MyPrintPreviewDialog = new PrintPreviewDialog();
                 MyPrintPreviewDialog.Document = printDocument1;
@@ -249,8 +264,9 @@ namespace VentanaPrincipal
         }
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            imp.Impresion(printDocument1, e, Titulo);
+            imp.Impresion(printDocument1, e, Colegio, "Ingresos");
         }
         #endregion        
+
     }
 }

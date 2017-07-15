@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cb_tipo = new System.Windows.Forms.ComboBox();
             this.b_ingresar = new System.Windows.Forms.Button();
             this.b_cancelar = new System.Windows.Forms.Button();
             this.tb_usuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_clave = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cb_tipo = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(264, 197);
             this.panel1.TabIndex = 13;
+            // 
+            // cb_tipo
+            // 
+            this.cb_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_tipo.FormattingEnabled = true;
+            this.cb_tipo.Items.AddRange(new object[] {
+            "Administrador",
+            "Usuario"});
+            this.cb_tipo.Location = new System.Drawing.Point(62, 108);
+            this.cb_tipo.Name = "cb_tipo";
+            this.cb_tipo.Size = new System.Drawing.Size(142, 21);
+            this.cb_tipo.TabIndex = 11;
             // 
             // b_ingresar
             // 
@@ -109,26 +121,16 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Usuario";
             // 
-            // cb_tipo
-            // 
-            this.cb_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_tipo.FormattingEnabled = true;
-            this.cb_tipo.Items.AddRange(new object[] {
-            "Administrador",
-            "Usuario"});
-            this.cb_tipo.Location = new System.Drawing.Point(62, 108);
-            this.cb_tipo.Name = "cb_tipo";
-            this.cb_tipo.Size = new System.Drawing.Size(142, 21);
-            this.cb_tipo.TabIndex = 11;
-            // 
             // VentanaLogin
             // 
             this.AcceptButton = this.b_ingresar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.b_cancelar;
-            this.ClientSize = new System.Drawing.Size(292, 225);
+            this.ClientSize = new System.Drawing.Size(284, 226);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(300, 265);
+            this.MinimumSize = new System.Drawing.Size(300, 265);
             this.Name = "VentanaLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingresar";

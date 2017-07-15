@@ -38,18 +38,19 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.b_balance);
             this.panel1.Controls.Add(this.b_servicios);
             this.panel1.Controls.Add(this.b_egresos);
             this.panel1.Controls.Add(this.b_ingresos);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(38, 51);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(677, 298);
+            this.panel1.Size = new System.Drawing.Size(623, 230);
             this.panel1.TabIndex = 0;
             // 
             // b_balance
             // 
-            this.b_balance.Location = new System.Drawing.Point(183, 169);
+            this.b_balance.Location = new System.Drawing.Point(160, 128);
             this.b_balance.Name = "b_balance";
             this.b_balance.Size = new System.Drawing.Size(337, 90);
             this.b_balance.TabIndex = 3;
@@ -59,7 +60,7 @@
             // 
             // b_servicios
             // 
-            this.b_servicios.Location = new System.Drawing.Point(455, 57);
+            this.b_servicios.Location = new System.Drawing.Point(432, 16);
             this.b_servicios.Name = "b_servicios";
             this.b_servicios.Size = new System.Drawing.Size(180, 90);
             this.b_servicios.TabIndex = 2;
@@ -69,7 +70,7 @@
             // 
             // b_egresos
             // 
-            this.b_egresos.Location = new System.Drawing.Point(243, 57);
+            this.b_egresos.Location = new System.Drawing.Point(220, 16);
             this.b_egresos.Name = "b_egresos";
             this.b_egresos.Size = new System.Drawing.Size(180, 90);
             this.b_egresos.TabIndex = 1;
@@ -79,7 +80,7 @@
             // 
             // b_ingresos
             // 
-            this.b_ingresos.Location = new System.Drawing.Point(40, 57);
+            this.b_ingresos.Location = new System.Drawing.Point(17, 16);
             this.b_ingresos.Name = "b_ingresos";
             this.b_ingresos.Size = new System.Drawing.Size(180, 90);
             this.b_ingresos.TabIndex = 0;
@@ -91,9 +92,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(701, 322);
+            this.ClientSize = new System.Drawing.Size(704, 321);
             this.Controls.Add(this.panel1);
             this.KeyPreview = true;
+            this.MaximumSize = new System.Drawing.Size(720, 360);
             this.Name = "VentanaMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú";

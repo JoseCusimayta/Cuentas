@@ -29,13 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.b_nuevo = new System.Windows.Forms.Button();
-            this.b_modificar = new System.Windows.Forms.Button();
-            this.b_historial = new System.Windows.Forms.Button();
-            this.b_eliminar = new System.Windows.Forms.Button();
-            this.b_cancelar = new System.Windows.Forms.Button();
-            this.b_guardar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.b_imprimir = new System.Windows.Forms.Button();
             this.b_salir = new System.Windows.Forms.Button();
@@ -43,9 +36,17 @@
             this.b_siguiente = new System.Windows.Forms.Button();
             this.b_anterior = new System.Windows.Forms.Button();
             this.b_inicio = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.b_f5 = new System.Windows.Forms.Button();
+            this.b_nuevo = new System.Windows.Forms.Button();
+            this.b_modificar = new System.Windows.Forms.Button();
+            this.b_historial = new System.Windows.Forms.Button();
+            this.b_eliminar = new System.Windows.Forms.Button();
+            this.b_cancelar = new System.Windows.Forms.Button();
+            this.b_guardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -67,96 +68,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(950, 283);
             this.dataGridView1.TabIndex = 69;
             this.dataGridView1.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.panel2.Controls.Add(this.b_nuevo);
-            this.panel2.Controls.Add(this.b_modificar);
-            this.panel2.Controls.Add(this.b_historial);
-            this.panel2.Controls.Add(this.b_eliminar);
-            this.panel2.Controls.Add(this.b_cancelar);
-            this.panel2.Controls.Add(this.b_guardar);
-            this.panel2.Location = new System.Drawing.Point(30, 190);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(910, 33);
-            this.panel2.TabIndex = 68;
-            // 
-            // b_nuevo
-            // 
-            this.b_nuevo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.b_nuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_nuevo.Location = new System.Drawing.Point(81, 5);
-            this.b_nuevo.Name = "b_nuevo";
-            this.b_nuevo.Size = new System.Drawing.Size(120, 25);
-            this.b_nuevo.TabIndex = 19;
-            this.b_nuevo.TabStop = false;
-            this.b_nuevo.Text = "Nuevo";
-            this.b_nuevo.UseVisualStyleBackColor = true;
-            this.b_nuevo.Click += new System.EventHandler(this.b_nuevo_Click);
-            // 
-            // b_modificar
-            // 
-            this.b_modificar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.b_modificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_modificar.Location = new System.Drawing.Point(207, 5);
-            this.b_modificar.Name = "b_modificar";
-            this.b_modificar.Size = new System.Drawing.Size(120, 25);
-            this.b_modificar.TabIndex = 16;
-            this.b_modificar.TabStop = false;
-            this.b_modificar.Text = "Modificar";
-            this.b_modificar.UseVisualStyleBackColor = true;
-            // 
-            // b_historial
-            // 
-            this.b_historial.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.b_historial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_historial.Location = new System.Drawing.Point(711, 5);
-            this.b_historial.Name = "b_historial";
-            this.b_historial.Size = new System.Drawing.Size(120, 25);
-            this.b_historial.TabIndex = 21;
-            this.b_historial.TabStop = false;
-            this.b_historial.Text = "Historial";
-            this.b_historial.UseVisualStyleBackColor = true;
-            // 
-            // b_eliminar
-            // 
-            this.b_eliminar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.b_eliminar.Enabled = false;
-            this.b_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_eliminar.Location = new System.Drawing.Point(333, 5);
-            this.b_eliminar.Name = "b_eliminar";
-            this.b_eliminar.Size = new System.Drawing.Size(120, 25);
-            this.b_eliminar.TabIndex = 17;
-            this.b_eliminar.TabStop = false;
-            this.b_eliminar.Text = "Eliminar";
-            this.b_eliminar.UseVisualStyleBackColor = true;
-            // 
-            // b_cancelar
-            // 
-            this.b_cancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.b_cancelar.Enabled = false;
-            this.b_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_cancelar.Location = new System.Drawing.Point(585, 5);
-            this.b_cancelar.Name = "b_cancelar";
-            this.b_cancelar.Size = new System.Drawing.Size(120, 25);
-            this.b_cancelar.TabIndex = 20;
-            this.b_cancelar.TabStop = false;
-            this.b_cancelar.Text = "Cancelar";
-            this.b_cancelar.UseVisualStyleBackColor = true;
-            // 
-            // b_guardar
-            // 
-            this.b_guardar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.b_guardar.Enabled = false;
-            this.b_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_guardar.Location = new System.Drawing.Point(459, 5);
-            this.b_guardar.Name = "b_guardar";
-            this.b_guardar.Size = new System.Drawing.Size(120, 25);
-            this.b_guardar.TabIndex = 18;
-            this.b_guardar.TabStop = false;
-            this.b_guardar.Text = "Guardar";
-            this.b_guardar.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -238,21 +149,123 @@
             this.b_inicio.Text = "<<";
             this.b_inicio.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel2.Controls.Add(this.b_f5);
+            this.panel2.Controls.Add(this.b_nuevo);
+            this.panel2.Controls.Add(this.b_modificar);
+            this.panel2.Controls.Add(this.b_historial);
+            this.panel2.Controls.Add(this.b_eliminar);
+            this.panel2.Controls.Add(this.b_cancelar);
+            this.panel2.Controls.Add(this.b_guardar);
+            this.panel2.Location = new System.Drawing.Point(30, 190);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(910, 33);
+            this.panel2.TabIndex = 71;
+            // 
+            // b_f5
+            // 
+            this.b_f5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.b_f5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_f5.Location = new System.Drawing.Point(776, 5);
+            this.b_f5.Name = "b_f5";
+            this.b_f5.Size = new System.Drawing.Size(120, 25);
+            this.b_f5.TabIndex = 22;
+            this.b_f5.TabStop = false;
+            this.b_f5.Text = "Actualizar";
+            this.b_f5.UseVisualStyleBackColor = true;
+            // 
+            // b_nuevo
+            // 
+            this.b_nuevo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.b_nuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_nuevo.Location = new System.Drawing.Point(20, 5);
+            this.b_nuevo.Name = "b_nuevo";
+            this.b_nuevo.Size = new System.Drawing.Size(120, 25);
+            this.b_nuevo.TabIndex = 19;
+            this.b_nuevo.TabStop = false;
+            this.b_nuevo.Text = "Nuevo";
+            this.b_nuevo.UseVisualStyleBackColor = true;
+            // 
+            // b_modificar
+            // 
+            this.b_modificar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.b_modificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_modificar.Location = new System.Drawing.Point(146, 5);
+            this.b_modificar.Name = "b_modificar";
+            this.b_modificar.Size = new System.Drawing.Size(120, 25);
+            this.b_modificar.TabIndex = 16;
+            this.b_modificar.TabStop = false;
+            this.b_modificar.Text = "Modificar";
+            this.b_modificar.UseVisualStyleBackColor = true;
+            // 
+            // b_historial
+            // 
+            this.b_historial.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.b_historial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_historial.Location = new System.Drawing.Point(650, 5);
+            this.b_historial.Name = "b_historial";
+            this.b_historial.Size = new System.Drawing.Size(120, 25);
+            this.b_historial.TabIndex = 21;
+            this.b_historial.TabStop = false;
+            this.b_historial.Text = "Historial";
+            this.b_historial.UseVisualStyleBackColor = true;
+            // 
+            // b_eliminar
+            // 
+            this.b_eliminar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.b_eliminar.Enabled = false;
+            this.b_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_eliminar.Location = new System.Drawing.Point(272, 5);
+            this.b_eliminar.Name = "b_eliminar";
+            this.b_eliminar.Size = new System.Drawing.Size(120, 25);
+            this.b_eliminar.TabIndex = 17;
+            this.b_eliminar.TabStop = false;
+            this.b_eliminar.Text = "Eliminar";
+            this.b_eliminar.UseVisualStyleBackColor = true;
+            // 
+            // b_cancelar
+            // 
+            this.b_cancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.b_cancelar.Enabled = false;
+            this.b_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_cancelar.Location = new System.Drawing.Point(524, 5);
+            this.b_cancelar.Name = "b_cancelar";
+            this.b_cancelar.Size = new System.Drawing.Size(120, 25);
+            this.b_cancelar.TabIndex = 20;
+            this.b_cancelar.TabStop = false;
+            this.b_cancelar.Text = "Cancelar";
+            this.b_cancelar.UseVisualStyleBackColor = true;
+            // 
+            // b_guardar
+            // 
+            this.b_guardar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.b_guardar.Enabled = false;
+            this.b_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_guardar.Location = new System.Drawing.Point(398, 5);
+            this.b_guardar.Name = "b_guardar";
+            this.b_guardar.Size = new System.Drawing.Size(120, 25);
+            this.b_guardar.TabIndex = 18;
+            this.b_guardar.TabStop = false;
+            this.b_guardar.Text = "Guardar";
+            this.b_guardar.UseVisualStyleBackColor = true;
+            // 
             // VentanaBalance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel3);
             this.Name = "VentanaBalance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Balance de Cuentas";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.VentanaBalance_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -260,13 +273,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button b_nuevo;
-        private System.Windows.Forms.Button b_modificar;
-        private System.Windows.Forms.Button b_historial;
-        private System.Windows.Forms.Button b_eliminar;
-        private System.Windows.Forms.Button b_cancelar;
-        private System.Windows.Forms.Button b_guardar;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button b_imprimir;
         private System.Windows.Forms.Button b_salir;
@@ -274,5 +280,13 @@
         private System.Windows.Forms.Button b_siguiente;
         private System.Windows.Forms.Button b_anterior;
         private System.Windows.Forms.Button b_inicio;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button b_f5;
+        private System.Windows.Forms.Button b_nuevo;
+        private System.Windows.Forms.Button b_modificar;
+        private System.Windows.Forms.Button b_historial;
+        private System.Windows.Forms.Button b_eliminar;
+        private System.Windows.Forms.Button b_cancelar;
+        private System.Windows.Forms.Button b_guardar;
     }
 }

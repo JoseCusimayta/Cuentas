@@ -58,7 +58,7 @@ namespace TransicionDatos
         }
         public DataTable TablaEgresos(string condicion)
         {
-            tabla = tablas.SelectDataTable("select Codigo, Colegio, Talon, Boleta, Monto, Descripcion, Fecha from Egresos where Estado <> 'Anulado' " + condicion);
+            tabla = tablas.SelectDataTable("select Codigo as 'Código', Colegio as 'Nombre de Colegio', Fecha, Talon as 'Número de Talón', Boleta as 'Número de Boleta', Descripcion as 'Descripción', Monto from egresos where Estado <> 'Anulado' " + condicion);
             return tabla;
         }
         public string NuevoCodigo()

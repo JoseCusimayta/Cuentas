@@ -45,7 +45,7 @@ namespace TransicionDatos
         private int TopMargin;
         private int RightMargin;
         private int BottomMargin;
-        private int TamañoLargo=50;
+        private int TamañoLargo=35;
 
         // A parameter that keep track
         // on the y coordinate of the page,
@@ -117,7 +117,7 @@ namespace TransicionDatos
             // is the first row in the DataGridView control
             CurrentRow = 0;
         }
-
+        
         // The function that calculate
         // the height of each row (including the header row),
         // the width of each column (according

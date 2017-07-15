@@ -1,3 +1,4 @@
+
 create table Usuarios
 (
 Usuario varchar (15) not null primary key,
@@ -19,6 +20,19 @@ Descripcion varchar (100),
 Colegio varchar (50) not null,
 Estado varchar(7) not null
 )
+
+create table Egresos
+(
+Codigo int identity (1,1) primary key,
+Fecha date not null,
+Talon int not null,
+Boleta int not null,
+Monto numeric(10,2) not null,
+Descripcion varchar (100),
+Colegio varchar (50) not null,
+Estado varchar(7) not null
+)
+
 
 alter procedure InsertarIngresos
  @Fecha date,
@@ -66,5 +80,54 @@ where
 Codigo=@Codigo
 go
 
+
+
+alter procedure InsertarEgresos
+ @Fecha date,
+ @Talon int,
+ @Boleta int,
+ @Monto numeric(10,2),
+ @Descripcion varchar(100),
+ @Colegio varchar(50)
+ as
+ insert into Egresos (Fecha, Talon, Boleta,Monto,Descripcion, Colegio,Estado) values
+ (
+ @Fecha,
+ @Talon,
+ @Boleta,
+ @Monto,
+ @Descripcion,
+ @Colegio,
+ 'Activo'
+ )
+ go
+ alter procedure ModificarEgresos
+ @Codigo int,
+ @Fecha date,
+ @Talon int,
+ @Boleta int,
+ @Monto numeric(10,2),
+ @Descripcion varchar(100),
+ @Colegio varchar(50)
+ as
+update Egresos set
+Fecha=@Fecha,
+Talon=@Talon,
+Boleta=@Boleta,
+Monto=@Monto,
+Descripcion=@Descripcion,
+Colegio=@Colegio
+where
+Codigo=@Codigo
+go
+alter procedure EliminarEgresos
+ @Codigo int
+ as
+update Egresos set
+Estado='Anulado'
+where
+Codigo=@Codigo
+go
 Exec ModificarIngresos 3,'10/05/2017',2,1,220,'Prueba 3','France'
 select * from Ingresos where Boleta <>  1 and Talon=2
+select Codigo as 'Código', Colegio as 'Nombre de Colegio', Fecha, Talon as 'Número de Talón', Boleta as 'Número de Boleta', Descripcion as 'Descripción', Monto from ingresos where Estado <> 'Anulado'

@@ -113,6 +113,7 @@
             this.b_imprimir.TabStop = false;
             this.b_imprimir.Text = "Vista Previa";
             this.b_imprimir.UseVisualStyleBackColor = true;
+            this.b_imprimir.Click += new System.EventHandler(this.b_imprimir_Click);
             // 
             // b_salir
             // 
@@ -124,6 +125,7 @@
             this.b_salir.TabStop = false;
             this.b_salir.Text = "Salir";
             this.b_salir.UseVisualStyleBackColor = true;
+            this.b_salir.Click += new System.EventHandler(this.b_salir_Click);
             // 
             // b_final
             // 
@@ -135,6 +137,7 @@
             this.b_final.TabStop = false;
             this.b_final.Text = ">>";
             this.b_final.UseVisualStyleBackColor = true;
+            this.b_final.Click += new System.EventHandler(this.b_final_Click);
             // 
             // b_siguiente
             // 
@@ -146,6 +149,7 @@
             this.b_siguiente.TabStop = false;
             this.b_siguiente.Text = ">";
             this.b_siguiente.UseVisualStyleBackColor = true;
+            this.b_siguiente.Click += new System.EventHandler(this.b_siguiente_Click);
             // 
             // b_anterior
             // 
@@ -157,6 +161,7 @@
             this.b_anterior.TabStop = false;
             this.b_anterior.Text = "<";
             this.b_anterior.UseVisualStyleBackColor = true;
+            this.b_anterior.Click += new System.EventHandler(this.b_anterior_Click);
             // 
             // b_inicio
             // 
@@ -168,6 +173,7 @@
             this.b_inicio.TabStop = false;
             this.b_inicio.Text = "<<";
             this.b_inicio.UseVisualStyleBackColor = true;
+            this.b_inicio.Click += new System.EventHandler(this.b_inicio_Click);
             // 
             // panel1
             // 
@@ -209,6 +215,7 @@
             this.cb_colegio.Name = "cb_colegio";
             this.cb_colegio.Size = new System.Drawing.Size(121, 21);
             this.cb_colegio.TabIndex = 17;
+            this.cb_colegio.SelectedIndexChanged += new System.EventHandler(this.cb_colegio_SelectedIndexChanged);
             // 
             // Fecha
             // 
@@ -362,6 +369,7 @@
             this.b_f5.TabStop = false;
             this.b_f5.Text = "Actualizar";
             this.b_f5.UseVisualStyleBackColor = true;
+            this.b_f5.Click += new System.EventHandler(this.b_f5_Click);
             // 
             // b_nuevo
             // 
@@ -387,6 +395,7 @@
             this.b_modificar.TabStop = false;
             this.b_modificar.Text = "Modificar";
             this.b_modificar.UseVisualStyleBackColor = true;
+            this.b_modificar.Click += new System.EventHandler(this.b_modificar_Click);
             // 
             // b_historial
             // 
@@ -399,6 +408,7 @@
             this.b_historial.TabStop = false;
             this.b_historial.Text = "Historial";
             this.b_historial.UseVisualStyleBackColor = true;
+            this.b_historial.Click += new System.EventHandler(this.b_historial_Click);
             // 
             // b_eliminar
             // 
@@ -412,6 +422,7 @@
             this.b_eliminar.TabStop = false;
             this.b_eliminar.Text = "Eliminar";
             this.b_eliminar.UseVisualStyleBackColor = true;
+            this.b_eliminar.Click += new System.EventHandler(this.b_eliminar_Click);
             // 
             // b_cancelar
             // 
@@ -425,6 +436,7 @@
             this.b_cancelar.TabStop = false;
             this.b_cancelar.Text = "Cancelar";
             this.b_cancelar.UseVisualStyleBackColor = true;
+            this.b_cancelar.Click += new System.EventHandler(this.b_cancelar_Click);
             // 
             // b_guardar
             // 
@@ -438,6 +450,7 @@
             this.b_guardar.TabStop = false;
             this.b_guardar.Text = "Guardar";
             this.b_guardar.UseVisualStyleBackColor = true;
+            this.b_guardar.Click += new System.EventHandler(this.b_guardar_Click);
             // 
             // printPreviewDialog1
             // 
@@ -449,6 +462,10 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
             // VentanaEgresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -458,6 +475,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel3);
+            this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "VentanaEgresos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Egresos";
