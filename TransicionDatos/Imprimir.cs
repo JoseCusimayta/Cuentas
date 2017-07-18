@@ -12,6 +12,26 @@ namespace TransicionDatos
     public class Imprimir
     {
         DataGridViewPrinter MyDataGridViewPrinter;
+        public void Impresionlandscape(PrintDocument p, PrintPageEventArgs e, String Colegio, String Titulo)
+        {
+            p.DefaultPageSettings.Landscape = true;
+            
+            Pen myPen = new Pen(System.Drawing.Color.Black, 2);
+            //Bitmap bmp = Properties.Resources.Logo01NC;
+            //Image newImage = bmp;
+            //e.Graphics.DrawImage(newImage, 870, 20, newImage.Width, newImage.Height);
+            e.Graphics.DrawString(Colegio, new Font("Arial", 25, FontStyle.Regular), Brushes.Black, new Point(60, 20));
+            e.Graphics.DrawString(Titulo, new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(60, 70));
+            e.Graphics.DrawLine(myPen, 65, 97, 170, 97);
+            myPen.Dispose();
+            e.Graphics.DrawString(DateTime.Now.ToLongDateString(), new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(60, 110));
+
+
+            bool more = MyDataGridViewPrinter.DrawDataGridView(e.Graphics);
+            if (more == true)
+                e.HasMorePages = true;
+        }
+
         public void Impresion(PrintDocument p, PrintPageEventArgs e, String Colegio, String Titulo)
         {
             if (p.DefaultPageSettings.Landscape == true)

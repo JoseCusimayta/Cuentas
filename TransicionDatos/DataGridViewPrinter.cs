@@ -45,8 +45,8 @@ namespace TransicionDatos
         private int TopMargin;
         private int RightMargin;
         private int BottomMargin;
-        private int TamañoLargo=35;
-
+        public int ancho_filas=5;
+        public int margin_cell_top = 3;
         // A parameter that keep track
         // on the y coordinate of the page,
         // so the next object to be printed
@@ -144,7 +144,7 @@ namespace TransicionDatos
                     tmpSize = g.MeasureString(
                               TheDataGridView.Columns[i].HeaderText,
                               tmpFont);
-                    tmpWidth = tmpSize.Width+TamañoLargo;
+                    tmpWidth = tmpSize.Width;
                     RowHeaderHeight = tmpSize.Height;
 
                     for (int j = 0; j < TheDataGridView.Rows.Count; j++)
@@ -157,7 +157,7 @@ namespace TransicionDatos
                             tmpFont = TheDataGridView.DefaultCellStyle.Font;
 
                         tmpSize = g.MeasureString("Anything", tmpFont);
-                        RowsHeight.Add(tmpSize.Height);
+                        RowsHeight.Add(tmpSize.Height+ancho_filas);
 
                         tmpSize =
                             g.MeasureString(
@@ -502,7 +502,7 @@ namespace TransicionDatos
                             CellFormat.Alignment = StringAlignment.Near;
 
                         ColumnWidth = ColumnsWidth[CurrentCell];
-                        RectangleF CellBounds = new RectangleF(CurrentX, CurrentY,
+                        RectangleF CellBounds = new RectangleF(CurrentX, CurrentY+margin_cell_top,
                             ColumnWidth, RowsHeight[CurrentRow]);
 
                         // Printing the cell text

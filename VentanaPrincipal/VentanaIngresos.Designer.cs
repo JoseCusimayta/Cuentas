@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaIngresos));
             this.panel3 = new System.Windows.Forms.Panel();
             this.b_imprimir = new System.Windows.Forms.Button();
@@ -37,6 +38,7 @@
             this.b_anterior = new System.Windows.Forms.Button();
             this.b_inicio = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.b_f5 = new System.Windows.Forms.Button();
             this.b_nuevo = new System.Windows.Forms.Button();
             this.b_modificar = new System.Windows.Forms.Button();
             this.b_historial = new System.Windows.Forms.Button();
@@ -61,7 +63,6 @@
             this.tb_monto = new System.Windows.Forms.TextBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.b_f5 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -170,6 +171,19 @@
             this.panel2.Size = new System.Drawing.Size(910, 33);
             this.panel2.TabIndex = 65;
             // 
+            // b_f5
+            // 
+            this.b_f5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.b_f5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_f5.Location = new System.Drawing.Point(776, 5);
+            this.b_f5.Name = "b_f5";
+            this.b_f5.Size = new System.Drawing.Size(120, 25);
+            this.b_f5.TabIndex = 22;
+            this.b_f5.TabStop = false;
+            this.b_f5.Text = "Actualizar";
+            this.b_f5.UseVisualStyleBackColor = true;
+            this.b_f5.Click += new System.EventHandler(this.b_f5_Click);
+            // 
             // b_nuevo
             // 
             this.b_nuevo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -260,6 +274,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(15, 230);
             this.dataGridView1.Name = "dataGridView1";
@@ -297,9 +319,10 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(693, 20);
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(670, 20);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(235, 23);
             this.dateTimePicker1.TabIndex = 18;
             // 
             // cb_colegio
@@ -309,7 +332,7 @@
             this.cb_colegio.Items.AddRange(new object[] {
             "France la sorbona",
             "Michel Duclercq"});
-            this.cb_colegio.Location = new System.Drawing.Point(182, 20);
+            this.cb_colegio.Location = new System.Drawing.Point(167, 20);
             this.cb_colegio.Name = "cb_colegio";
             this.cb_colegio.Size = new System.Drawing.Size(121, 21);
             this.cb_colegio.TabIndex = 17;
@@ -319,7 +342,7 @@
             // 
             this.Fecha.AutoSize = true;
             this.Fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Fecha.Location = new System.Drawing.Point(632, 20);
+            this.Fecha.Location = new System.Drawing.Point(617, 20);
             this.Fecha.Name = "Fecha";
             this.Fecha.Size = new System.Drawing.Size(47, 17);
             this.Fecha.TabIndex = 16;
@@ -329,7 +352,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(332, 20);
+            this.label1.Location = new System.Drawing.Point(317, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 17);
             this.label1.TabIndex = 0;
@@ -349,7 +372,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(32, 20);
+            this.label8.Location = new System.Drawing.Point(17, 20);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 17);
             this.label8.TabIndex = 14;
@@ -359,7 +382,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(32, 70);
+            this.label3.Location = new System.Drawing.Point(17, 70);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 17);
             this.label3.TabIndex = 2;
@@ -369,7 +392,7 @@
             // 
             this.tb_boleta.Enabled = false;
             this.tb_boleta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_boleta.Location = new System.Drawing.Point(482, 70);
+            this.tb_boleta.Location = new System.Drawing.Point(467, 70);
             this.tb_boleta.MaxLength = 8;
             this.tb_boleta.Name = "tb_boleta";
             this.tb_boleta.Size = new System.Drawing.Size(120, 23);
@@ -381,7 +404,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(632, 70);
+            this.label4.Location = new System.Drawing.Point(617, 70);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 17);
             this.label4.TabIndex = 3;
@@ -391,7 +414,7 @@
             // 
             this.tb_codigo.Enabled = false;
             this.tb_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_codigo.Location = new System.Drawing.Point(482, 20);
+            this.tb_codigo.Location = new System.Drawing.Point(467, 20);
             this.tb_codigo.MaxLength = 6;
             this.tb_codigo.Name = "tb_codigo";
             this.tb_codigo.Size = new System.Drawing.Size(120, 23);
@@ -403,7 +426,7 @@
             this.tb_descipcion.Enabled = false;
             this.tb_descipcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_descipcion.Location = new System.Drawing.Point(232, 120);
-            this.tb_descipcion.MaxLength = 50;
+            this.tb_descipcion.MaxLength = 42;
             this.tb_descipcion.Name = "tb_descipcion";
             this.tb_descipcion.Size = new System.Drawing.Size(500, 23);
             this.tb_descipcion.TabIndex = 7;
@@ -413,7 +436,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(332, 70);
+            this.label7.Location = new System.Drawing.Point(317, 70);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(122, 17);
             this.label7.TabIndex = 10;
@@ -423,7 +446,7 @@
             // 
             this.tb_talon.Enabled = false;
             this.tb_talon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_talon.Location = new System.Drawing.Point(182, 70);
+            this.tb_talon.Location = new System.Drawing.Point(167, 70);
             this.tb_talon.MaxLength = 20;
             this.tb_talon.Name = "tb_talon";
             this.tb_talon.Size = new System.Drawing.Size(120, 23);
@@ -435,7 +458,7 @@
             // 
             this.tb_monto.Enabled = false;
             this.tb_monto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_monto.Location = new System.Drawing.Point(732, 70);
+            this.tb_monto.Location = new System.Drawing.Point(717, 70);
             this.tb_monto.MaxLength = 10;
             this.tb_monto.Name = "tb_monto";
             this.tb_monto.Size = new System.Drawing.Size(120, 23);
@@ -453,23 +476,11 @@
             this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
             this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
             this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
             this.printPreviewDialog1.Enabled = true;
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
-            // 
-            // b_f5
-            // 
-            this.b_f5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.b_f5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_f5.Location = new System.Drawing.Point(776, 5);
-            this.b_f5.Name = "b_f5";
-            this.b_f5.Size = new System.Drawing.Size(120, 25);
-            this.b_f5.TabIndex = 22;
-            this.b_f5.TabStop = false;
-            this.b_f5.Text = "Actualizar";
-            this.b_f5.UseVisualStyleBackColor = true;
-            this.b_f5.Click += new System.EventHandler(this.b_f5_Click);
             // 
             // VentanaIngresos
             // 
@@ -481,6 +492,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
+            this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "VentanaIngresos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingresos";

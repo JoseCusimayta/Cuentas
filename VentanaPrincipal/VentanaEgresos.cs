@@ -39,7 +39,6 @@ namespace VentanaPrincipal
             else
             {
                 dataGridView1.DataSource = datatable;
-                sumar();
             }
         }
         public void DiseñoTablas()
@@ -49,11 +48,16 @@ namespace VentanaPrincipal
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dataGridView1.Columns[6].DefaultCellStyle.Format = "C2";
-            dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                dataGridView1.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -67,11 +71,11 @@ namespace VentanaPrincipal
                 if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.Rows.Count - 1)
                 {
                     DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                    if (!string.IsNullOrWhiteSpace( row.Cells[0].Value.ToString()))
+                    if (!string.IsNullOrEmpty( row.Cells[0].Value.ToString()))
                     {
                         tb_codigo.Text = row.Cells[0].Value.ToString();
-                        cb_colegio.Text = row.Cells[1].Value.ToString();
-                        dateTimePicker1.Text = row.Cells[2].Value.ToString();
+                        dateTimePicker1.Text = row.Cells[1].Value.ToString();
+                        cb_colegio.Text = row.Cells[2].Value.ToString();
                         tb_talon.Text = row.Cells[3].Value.ToString();
                         tb_boleta.Text = row.Cells[4].Value.ToString();
                         tb_descipcion.Text = row.Cells[5].Value.ToString();
@@ -80,19 +84,6 @@ namespace VentanaPrincipal
                 }
                 modo = "Original";
             }
-        }
-        void sumar()
-        {
-            double suma = 0;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                suma += Convert.ToDouble(row.Cells["Monto"].Value);
-            }
-            DataTable dt = (DataTable)dataGridView1.DataSource;
-            DataRow row2 = dt.NewRow();
-            row2["Descripción"] = "Suma Total";
-            row2["Monto"] = Convert.ToDecimal(suma);
-            dt.Rows.Add(row2);
         }
         #endregion
 
@@ -152,6 +143,8 @@ namespace VentanaPrincipal
             if (!string.IsNullOrWhiteSpace(tb_codigo.Text))
             {
                 modo = "Modificar";
+                string codigo = egresos.Modificar(tb_codigo.Text);
+                tb_codigo.Text = codigo;
                 verificarCampos.ActivarModificar(panel1, panel2);
             }
             else
@@ -180,6 +173,10 @@ namespace VentanaPrincipal
             {
                 MessageBox.Show(egresos.IngresarEgresos(modo, tb_codigo.Text, dateTimePicker1.Text, tb_talon.Text, tb_boleta.Text, tb_monto.Text, tb_descipcion.Text, cb_colegio.Text));
                 TablaEgresos(null);
+                if (modo == "Modificar")
+                {
+                    verificarCampos.ActivarCancelar(panel1, panel2);
+                }
             }
             else
             {
